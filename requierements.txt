@@ -3,7 +3,6 @@ Image
 datetime
 base64
 time
-numpy
 random
 pandas
 openpyxl
