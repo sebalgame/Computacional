@@ -6,3 +6,4 @@ time
 numpy
 random
 pandas
+openpyxl
