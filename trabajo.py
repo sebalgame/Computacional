@@ -3,7 +3,7 @@ from PIL import Image
 from datetime import datetime
 import base64
 import time
-import numpy as np
+import openpyxl
 import random
 import pandas as pd
 
