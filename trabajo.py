@@ -1,7 +1,5 @@
 import streamlit as st
 from PIL import Image
-from openpyxl import Workbook
-from io import BytesIO
 from datetime import datetime
 import base64
 import time
@@ -219,16 +217,8 @@ def Aplicacion():
         
         st.write("Flujo Maximo: %d " %  g.FordFulkerson(salida, llegada))
     elif cargar == "Matriz con datos ingresados":
-        workbook = Workbook()
-
-      with NamedTemporaryFile() as tmp:
-           workbook.save(tmp.name)
-           data = BytesIO(tmp.read())
-
-      st.download_button("Retrieve file",
-           data=data,
-           mime='xlsx',
-           file_name="codiguito.xlsx")
+       
+           archivo = st.file_uploader("Cargar archivo", type="xlsx")
         if archivo is not None:
             df = pd.read_excel(archivo, engine='openpyxl', sheet_name='Hoja1', skiprows=1)
             gra = df.values
