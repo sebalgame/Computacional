@@ -1,4 +1,4 @@
-streamlit
+streamlit-lottie
 pandas 
 openpyxl==3.0.9
 Image
