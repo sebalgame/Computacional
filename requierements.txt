@@ -1,8 +1,9 @@
 streamlit
+pandas
+openpyxl
 Image
 datetime
 base64
 time
 random
-pandas
-pip install openpyxl
+
