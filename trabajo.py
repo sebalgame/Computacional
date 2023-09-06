@@ -219,10 +219,16 @@ def Aplicacion():
         
         st.write("Flujo Maximo: %d " %  g.FordFulkerson(salida, llegada))
     elif cargar == "Matriz con datos ingresados":
-        st.download_button("Retrieve file",
+        workbook = Workbook()
+
+      with NamedTemporaryFile() as tmp:
+           workbook.save(tmp.name)
+           data = BytesIO(tmp.read())
+
+      st.download_button("Retrieve file",
            data=data,
            mime='xlsx',
-           file_name="name_of_file.xlsx")
+           file_name="codiguito.xlsx")
         if archivo is not None:
             df = pd.read_excel(archivo, engine='openpyxl', sheet_name='Hoja1', skiprows=1)
             gra = df.values
