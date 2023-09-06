@@ -80,7 +80,7 @@ def Problema():
     st.subheader("Algunos ejemplos: ")
 
     st.image("algoritmo1.png", width = 600, caption = "Ejemplo 1" )
-    st.image("algoritmo2.jpg", width = 600, caption = "Ejemplo 2" )
+    st.image("Algoritmo2.jpg", width = 600, caption = "Ejemplo 2" )
 
     st.subheader("¿Como se planteo el desarrollo?")
     st.write("Al momento de plasmarlo en codigo desarrollado en python, se utilizo la misma logica para colocar una matriz de adyacencia. Cuando en la matriz de adyasencia se requiere conocer si un punto A esta conectado a un punto B, se le reconoce en la matrizcomo 1 y cuando no estan conectados, se le reconoce como 0.")
