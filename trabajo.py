@@ -219,8 +219,7 @@ def Aplicacion():
         
         st.write("Flujo Maximo: %d " %  g.FordFulkerson(salida, llegada))
     elif cargar == "Matriz con datos ingresados":
-
-           st.download_button("Retrieve file",
+        st.download_button("Retrieve file",
            data=data,
            mime='xlsx',
            file_name="name_of_file.xlsx")
