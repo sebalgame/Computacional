@@ -172,6 +172,22 @@ def Aplicacion():
                     self.gra[u][v] -= caminoFlu
                     self.gra[v][u] += caminoFlu
                     v = padre[v]
+                gra1 = []
+                st.write(f"Camino aumentante encontrado con flujo mínimo {caminoFlu}:")
+                st.write(f"Camino: {llegada}", end=" -> ")
+                s = llegada
+                while s != salida:
+                    u = padre[s]
+                    st.write(f"{u} -> ", end="")
+                    s = u
+                st.write(f"{salida}")
+                st.write("Matriz de capacidades residuales actualizada:")
+                for fil in self.gra:
+                    gra1.append(fil)
+                gral1 = pd.DataFrame(gra1)
+                st.dataframe(gral1)
+                st.write(f"Flujo máximo actual: {maxFlu}")
+                st.write("-" * 50)
             return maxFlu
 
     cargar = st.radio("Seleccione que opcion desea para generar los datos",
