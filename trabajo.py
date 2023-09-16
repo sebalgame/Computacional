@@ -80,7 +80,7 @@ def Problema():
     st.subheader("Algunos ejemplos: ")
 
     st.image("algoritmo1.png", width = 600, caption = "Ejemplo 1" )
-    st.image("Algoritmo2.jpg", width = 600, caption = "Ejemplo 2" )
+    st.image("algoritmo2.jpg", width = 600, caption = "Ejemplo 2" )
 
     st.subheader("¿Como se planteo el desarrollo?")
     st.write("Al momento de plasmarlo en codigo desarrollado en python, se utilizo la misma logica para colocar una matriz de adyacencia. Cuando en la matriz de adyasencia se requiere conocer si un punto A esta conectado a un punto B, se le reconoce en la matrizcomo 1 y cuando no estan conectados, se le reconoce como 0.")
@@ -172,6 +172,23 @@ def Aplicacion():
                     self.gra[u][v] -= caminoFlu
                     self.gra[v][u] += caminoFlu
                     v = padre[v]
+
+                gra1 = []
+                st.write(f"Camino aumentante encontrado con flujo mínimo {caminoFlu}:")
+                st.write(f"Camino: {llegada}", end=" -> ")
+                s = llegada
+                while s != salida:
+                    u = padre[s]
+                    st.write(f"{u} -> ", end="")
+                    s = u
+                st.write(f"{salida}")
+                st.write("Matriz de capacidades residuales actualizada:")
+                for fil in self.gra:
+                    gra1.append(fil)
+                gral1 = pd.DataFrame(gra1)
+                st.dataframe(gral1)
+                st.write(f"Flujo máximo actual: {maxFlu}")
+                st.write("-" * 50)
             return maxFlu
 
     cargar = st.radio("Seleccione que opcion desea para generar los datos",
@@ -221,6 +238,7 @@ def Aplicacion():
 
         archivo = st.file_uploader("Cargar archivo", type="xlsx")
         if archivo is not None:
+            
             df = pd.read_excel(archivo, engine='openpyxl', sheet_name='Hoja1', skiprows=1)
             gra = df.values
             st.dataframe(df)
